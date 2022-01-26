@@ -44,5 +44,6 @@
         "allow-plugins": {
             "bamarni/composer-bin-plugin": true
         }
-    }
+    },
+    "version": "0.1.0"
 }
