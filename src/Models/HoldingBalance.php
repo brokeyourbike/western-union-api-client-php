@@ -6,20 +6,16 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // You can obtain one at https://mozilla.org/MPL/2.0/.
 
-namespace BrokeYourBike\WesternUnion\Enums;
+namespace BrokeYourBike\WesternUnion\Models;
+
+use Spatie\DataTransferObject\DataTransferObject;
 
 /**
  * @author Ivan Stasiuk <ivan@stasi.uk>
  */
-enum TransactionTypeEnum: string
+class HoldingBalance extends DataTransferObject
 {
-    /**
-     * Bank transfer.
-     */
-    case BANK = 'acct_payout';
-
-    /**
-     * Cash collection.
-     */
-    case CASH = 'payout_pickup';
+    public string $currency;
+    public int $available;
+    public int $booked;
 }

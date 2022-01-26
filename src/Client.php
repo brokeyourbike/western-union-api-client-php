@@ -11,6 +11,9 @@ namespace BrokeYourBike\WesternUnion;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\ClientInterface;
 use BrokeYourBike\WesternUnion\Models\PingResponse;
+use BrokeYourBike\WesternUnion\Models\HoldingBalanceResponse;
+use BrokeYourBike\WesternUnion\Models\CustomerResponse;
+use BrokeYourBike\WesternUnion\Models\BatchResponse;
 use BrokeYourBike\WesternUnion\Interfaces\ConfigInterface;
 use BrokeYourBike\ResolveUri\ResolveUriTrait;
 use BrokeYourBike\HttpEnums\HttpMethodEnum;
@@ -41,8 +44,37 @@ class Client implements HttpClientInterface
     public function ping(): PingResponse
     {
         $response = $this->performRequest(HttpMethodEnum::GET, 'Ping', []);
-
         return new PingResponse($response);
+    }
+
+    public function getCustomer(): CustomerResponse
+    {
+        $response = $this->performRequest(HttpMethodEnum::GET, "customers/{$this->config->getClientId()}", []);
+        return new CustomerResponse($response);
+    }
+
+    public function getHoldingBalance(string $currencyCode): HoldingBalanceResponse
+    {
+        $response = $this->performRequest(HttpMethodEnum::GET, "HoldingBalance/{$this->config->getClientId()}/{$currencyCode}", []);
+        return new HoldingBalanceResponse($response);
+    }
+
+    public function getBatch(string $batchId): BatchResponse
+    {
+        $response = $this->performRequest(HttpMethodEnum::GET, "customers/{$this->config->getClientId()}/batches/{$batchId}", []);
+        return new BatchResponse($response);
+    }
+
+    public function createBatch(string $batchId, string $reference): ResponseInterface
+    {
+        return $this->performRequest(HttpMethodEnum::PUT, "customers/{$this->config->getClientId()}/batches/{$batchId}", [
+            'reference' => $reference,
+        ]);
+    }
+
+    public function deleteBatch(string $batchId): ResponseInterface
+    {
+        return $this->performRequest(HttpMethodEnum::DELETE, "customers/{$this->config->getClientId()}/batches/{$batchId}", []);
     }
 
     /**

@@ -14,113 +14,70 @@ namespace BrokeYourBike\WesternUnion\Enums;
 enum ErrorCodeEnum: string
 {
     /**
-     * Transaction successful.
+     * Generic Mass Payments Web Service Error.
+     *
+     * An unhandled exception has occurred.
      */
-    case SUCCESS = '00';
+    case GENERIC_ERROR = '1000';
 
     /**
-     * Transaction successful.
-     * Same as `SUCCESS`, but different code.
+     * Access denied.
+     *
+     * Client Certificate can't be verified or an attempt has been made to use a resources that you do not have access to.
      */
-    case DOUBLE_SUCCESS = '000';
+    case ACCESS_DENIED = '1001';
 
     /**
-     * Invalid credentials.
+     * Required Field Validation Error.
+     *
+     * A required data input field was either not included in the request or was included as a NULL or empty value.
+     * This type of error could optionally include an indication as to what field was missing.
+     * For example: 1003:paymentMethod - indicates that the payment method of a payment was not included in the request or had a NULL or empty value.
      */
-    case CREDENTIALS_ERROR = 'S1';
+    case REQUIRED_FIELD_VALIDATION_ERROR = '1003';
 
     /**
-     * Invalid amount.
+     * Conditional Field Validation Error.
      */
-    case AMOUNT_ERROR = 'S2';
+    case CONDITIONAL_FIELD_VALIDATION_ERROR = '1004';
 
     /**
-     * Transaction not permitted to merchant.
+     * Input Field Value Validation Error.
      */
-    case NOT_PERMITTED_ERROR = 'S3';
+    case INPUT_FIELD_VALIDATION_ERROR = '1005';
 
     /**
-     * Invalid currency.
+     * Unexpected Field Submitted.
+     *
+     * A partner's request payload contained a field that was unexpected as it is not defined as a part of the resource structure.
      */
-    case CURRENCY_ERROR = 'S4';
+    case UNEXPECTED_FIELD_SUBMITTED = '1006';
 
     /**
-     * Invalid/missing parameters.
+     * Defined Limit Exceeded.
+     *
+     * Some resources (such as webhooks) have a defined limit on how many of them can be added.
      */
-    case INVALID_PARAMS_ERROR = 'S5';
+    case DEFINED_LIMIT_EXCEEDED = '1007';
 
     /**
-     * Invalid country.
+     * Resource Not Found.
+     *
+     * A resource was requested as part of a collection or as a nested resource and the requested resource was not found.
      */
-    case COUNTRY_ERROR = 'S6';
+    case RESOURCE_NOT_FOUND = '1101';
 
     /**
-     * Generic error occurred.
+     * Invalid Quote.
+     *
+     * Partner request batch commit without valid quote (without calling quote API or due to any other reason quote is not associated with a batch commit.
      */
-    case GENERIC_ERROR = 'S7';
+    case INVALID_QUOTE = '1102';
 
     /**
-     * Null/missing publickey.
+     * Quote Expired.
+     *
+     * The quote was created more than 60 seconds ago and is no longer valid.
      */
-    case PUBLIC_KEY_ERROR = 'S8';
-
-    /**
-     * Null/missing authentication token.
-     */
-    case TOKEN_ERROR = 'S10';
-
-    /**
-     * Unable to connect to destination.
-     */
-    case DESTINATION_ERROR = 'S11';
-
-    /**
-     * Transaction failed.
-     */
-    case TRANSACTION_ERROR = 'S12';
-
-    /**
-     * Name enquiry error.
-     */
-    case NAME_ENQUIRY_ERROR = 'S12-01';
-
-    /**
-     * Invalid payout type.
-     */
-    case PAYOUT_TYPE_ERROR = 'S13';
-
-    /**
-     * Transaction reference must be unique.
-     */
-    case REFERENCE_ERROR = 'S14';
-
-    /**
-     * No data found.
-     */
-    case NOT_FOUND = 'S404';
-
-    /**
-     * Transaction is pending.
-     */
-    case PENDING = 'S20';
-
-    /**
-     * Transaction initiated.
-     */
-    case INITIATED = 'INI';
-
-    /**
-     * Transaction is in progress.
-     */
-    case IN_PROGRESS = 'INP';
-
-    /**
-     * Transaction has been locked for payout.
-     */
-    case LOCKED = 'LCK';
-
-    /**
-     * Transaction has been canceled.
-     */
-    case CANCELED = 'CANCEL';
+    case QUOTE_EXPIRED = '1103';
 }

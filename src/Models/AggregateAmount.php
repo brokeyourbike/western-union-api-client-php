@@ -6,15 +6,18 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // You can obtain one at https://mozilla.org/MPL/2.0/.
 
-namespace BrokeYourBike\WesternUnion\Interfaces;
+namespace BrokeYourBike\WesternUnion\Models;
+
+use Spatie\DataTransferObject\DataTransferObject;
 
 /**
  * @author Ivan Stasiuk <ivan@stasi.uk>
  */
-interface ConfigInterface
+class AggregateAmount extends DataTransferObject
 {
-    public function getUrl(): string;
-    public function getClientId(): string;
-    public function getCertificatePath(): string;
-    public function getCertificatePassword(): string;
+    public bool $isFixedOnSettlement;
+    public string $currency;
+    public string $settlementCurrency;
+    public int $amount;
+    public int $settlementAmount;
 }
