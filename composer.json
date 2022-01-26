@@ -1,0 +1,48 @@
+{
+    "name": "brokeyourbike/western-union-api-client",
+    "description": "Western Union API Client for PHP",
+    "type": "library",
+    "license": "MPL-2.0",
+    "keywords": [
+        "api",
+        "api-client",
+        "western-union",
+        "brokeyourbike"
+    ],
+    "autoload": {
+        "psr-4": {
+            "BrokeYourBike\\WesternUnion\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BrokeYourBike\\WesternUnion\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ivan Stasiuk",
+            "email": "ivan@stasi.uk",
+            "homepage": "https://stasi.uk"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.1",
+        "brokeyourbike/http-client": "^1.0",
+        "brokeyourbike/resolve-uri": "^1.0",
+        "brokeyourbike/http-enums": "^2.0",
+        "brokeyourbike/data-transfer-object": "^0.2"
+    },
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.4",
+        "phpunit/phpunit": "^9.5",
+        "mockery/mockery": "^1.4",
+        "nesbot/carbon": "^2"
+    },
+    "config": {
+        "allow-plugins": {
+            "bamarni/composer-bin-plugin": true
+        }
+    }
+}
