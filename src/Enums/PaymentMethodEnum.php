@@ -15,5 +15,9 @@ enum PaymentMethodEnum: string
 {
     case WIRE = 'WIRE';
     case ACH = 'ACH';
+
+    /**
+     * Same Day ACH
+     */
     case SDA = 'SDA';
 }
