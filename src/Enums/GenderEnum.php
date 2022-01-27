@@ -14,4 +14,5 @@ namespace BrokeYourBike\WesternUnion\Enums;
 enum GenderEnum: string
 {
     case MALE = 'male';
+    case FEMALE = 'female';
 }
