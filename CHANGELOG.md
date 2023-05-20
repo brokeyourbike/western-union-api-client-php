@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.2.1](https://www.github.com/brokeyourbike/western-union-api-client-php/compare/v0.2.0...v0.2.1) (2023-05-20)
+
+
+### Miscellaneous Chores
+
+* button ([3d68c79](https://www.github.com/brokeyourbike/western-union-api-client-php/commit/3d68c79b68aad96b002ab34734eb246c6dd310a2))
+
 ## [0.2.0](https://www.github.com/brokeyourbike/western-union-api-client-php/compare/v0.1.0...v0.2.0) (2023-05-14)
 
 
